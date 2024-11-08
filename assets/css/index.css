@@ -1,0 +1,226 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    background-color: #f7f7f7;
+    line-height: 1.6;
+  }
+  
+  /* Header and Navigation */
+  header {
+    background-color: #222;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+  
+  #logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #e3b505; /* Gold color for the sports theme */
+    text-decoration: none;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem;
+  }
+  
+  nav ul li a:hover {
+    color: #e3b505; /* Highlight color on hover */
+  }
+  
+  /* Hero Section */
+  #hero {
+    background-image: url('/assets/images/image58.jpg'); /* A relevant football background */
+    background-size: cover;
+    background-position: contain;
+    background-repeat: no-repeat;
+    padding: 10rem 2rem;
+    text-align: center;
+    color: white;
+  
+  }
+
+  #hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  #hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    color: #fff;
+    background-color: #e3b505;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background-color: #cf9e04;
+    transition: ease 0.7s;
+    transform: scale(1.04);
+  }
+  
+  /* About Section */
+  #about {
+    padding: 4rem 2rem;
+    background-color: #f1f1f1;
+    text-align: center;
+  }
+  
+  #about h2 {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+  }
+  
+  #about p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #666;
+  }
+  
+  /* Highlights Section */
+  #highlights {
+    display: flex;
+    gap: 1.5rem;
+    padding: 3rem 2rem;
+    background-color: #fff;
+    justify-content: space-evenly;
+  }
+  
+  .highlight {
+    background-color: #e3b505;
+    color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 300px;
+    transition: transform 0.3s ease;
+  }
+  
+  .highlight h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+  
+  .highlight p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #222;
+  }
+  
+  .highlight a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .highlight a:hover {
+    background-color: #fff;
+    color: #e3b505;
+  }
+  
+  .highlight:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #222;
+    color: #fff;
+    padding: 2rem 2rem;
+    text-align: center;
+  }
+  
+  #social-networks {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    list-style: none;
+    margin-bottom: 1rem;
+  }
+  
+  #social-networks li a {
+    color: #e3b505;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+  }
+  
+  #social-networks li a:hover {
+    color: #cf9e04;
+  }
+  
+  footer p {
+    font-size: 0.9rem;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    nav ul {
+      flex-direction: column;
+      gap: 0.8rem;
+      position: absolute;
+      background: #222;
+      top: 60px;
+      right: 2rem;
+      display: none;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+  
+    nav ul li {
+      margin: 0;
+    }
+  
+    nav ul.show {
+      display: flex;
+    }
+  
+    #highlights {
+      flex-direction: column;
+      padding: 2rem 1rem;
+    }
+  
+    #hero {
+      padding: 6rem 2rem;
+      background-image: url('/assets/images/image57.jpg');
+      
+     }
+  }
+  
