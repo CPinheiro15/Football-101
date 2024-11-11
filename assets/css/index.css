@@ -229,3 +229,100 @@ footer p {
   font-size: 0.8rem;
   color: #bbb; /* Slightly lighter text for contrast */
 }
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  #hero h1 {
+    font-size: 2.5rem;
+  }
+  #hero p {
+    font-size: 1.2rem;
+  }
+  #about {
+    padding: 3rem 2rem;
+  }
+  #about h2 {
+    font-size: 2rem;
+  }
+  #about p {
+    font-size: 1.1rem;
+  }
+  #highlights {
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: left;
+  }
+  .highlight {
+    width: 30%;
+    padding: 2rem;
+  }
+  footer {
+    font-size: 1rem;
+  }
+  #social-networks a {
+    font-size: 1.8rem;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  header {
+    padding: 1.5rem 2rem;
+  }
+  header h1#logo {
+    font-size: 2rem;
+  }
+  .nav-toggle-label i {
+    font-size: 2rem;
+  }
+  #hero {
+    padding: 6rem 2rem;
+  }
+  #hero h1 {
+    font-size: 3rem;
+  }
+  #hero p {
+    font-size: 1.5rem;
+  }
+  #about {
+    padding: 4rem 3rem;
+  }
+  #about h2 {
+    font-size: 2.5rem;
+  }
+  #about p {
+    font-size: 1.2rem;
+  }
+  #highlights {
+    gap: 2rem;
+  }
+  .highlight {
+    padding: 2.5rem;
+  }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  header {
+    padding: 2rem 3rem;
+  }
+  
+  #hero {
+    padding: 8rem 3rem;
+  }
+  #hero h1 {
+    font-size: 3.5rem;
+  }
+  #hero p {
+    font-size: 1.75rem;
+  }
+  #about {
+    padding: 5rem 4rem;
+  }
+  #highlights {
+    gap: 3rem;
+  }
+  .highlight h3 {
+    font-size: 2rem;
+  }
+}
