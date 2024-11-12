@@ -44,7 +44,7 @@ nav {
   padding: 1rem 0;
   border-radius: 0 0 8px 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-  z-index: 2;
+  z-index: 999;
 }
 
 #menu {
@@ -217,10 +217,7 @@ footer {
   font-size: 1.5rem;
   text-decoration: none;
   transition: color 0.3s ease;
-}
-
-#social-networks a:hover {
-  color: #e3b505; /* Gold color on hover */
+  font-size: 1.8em;
 }
 
 /* Footer Text */
@@ -232,6 +229,39 @@ footer p {
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
+  #logo {
+    white-space: nowrap;
+  }
+  /* Display navigation links in a row */
+  nav {
+    position: static;
+    display: flex;
+    justify-content: flex-end;
+    background-color: transparent;
+    padding: 0;
+    box-shadow: none;
+    transition: ease-in 0.9s;
+  }
+
+  #menu {
+    display: flex;
+    gap: 1rem;
+  }
+
+  #menu li {
+    margin: 0;
+  }
+
+  #menu a {
+    font-size: 1rem;
+    background-color: transparent;
+    padding: 0.5rem;
+  }
+
+  /* Hide burger menu icon */
+  .nav-toggle-label {
+    display: none;
+  }
   #hero h1 {
     font-size: 2.5rem;
   }
@@ -256,46 +286,85 @@ footer p {
     width: 30%;
     padding: 2rem;
   }
-  footer {
-    font-size: 1rem;
-  }
-  #social-networks a {
-    font-size: 1.8rem;
-  }
 }
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   header {
-    padding: 1.5rem 2rem;
+    padding: 1rem 1.5rem;
+    display: flex; /* Ensures the header elements align horizontally */
+    align-items: center;
+    justify-content: space-between;
   }
-  header h1#logo {
-    font-size: 2rem;
+
+  #logo {
+    font-size: 1.7rem;
+    white-space: nowrap; /* Prevents "Football 101" from breaking onto two lines */
   }
-  .nav-toggle-label i {
-    font-size: 2rem;
+
+  /* Hide burger icon */
+  .nav-toggle-label {
+    display: none;
   }
+
+  /* Display navigation links in a row */
+  nav {
+    display: flex;
+    position: static; /* Remove dropdown positioning */
+    background-color: transparent;
+    box-shadow: none;
+    transition: ease-in 0.9s;
+  }
+
+  #menu {
+    display: flex;
+    gap: 1.5rem; /* Space between menu items */
+    margin-left: auto; /* Aligns menu to the right */
+  }
+
+  #menu li {
+    margin: 0;
+  }
+
+  #menu a {
+    font-size: 1rem;
+    background-color: transparent;
+    padding: 0;
+    color: white; /* Ensure link color visibility */
+    text-decoration: none;
+  }
+
+  /* Hero Section */
   #hero {
     padding: 6rem 2rem;
   }
+
   #hero h1 {
     font-size: 3rem;
   }
+
   #hero p {
     font-size: 1.5rem;
   }
+
+  /* About Section */
   #about {
     padding: 4rem 3rem;
   }
+
   #about h2 {
     font-size: 2.5rem;
   }
+
   #about p {
     font-size: 1.2rem;
   }
+
+  /* Highlights Section */
   #highlights {
     gap: 2rem;
   }
+
   .highlight {
     padding: 2.5rem;
   }
@@ -303,10 +372,22 @@ footer p {
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
+  /* Adjust header padding */
   header {
-    padding: 2rem 3rem;
+    padding: 1rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
   }
-  
+
+  /* Adjust logo font size to prevent wrapping */
+  #logo {
+    font-size: 2rem;
+    white-space: nowrap;
+  }
+
+  /* Hero Section */
   #hero {
     padding: 8rem 3rem;
   }
@@ -316,13 +397,50 @@ footer p {
   #hero p {
     font-size: 1.75rem;
   }
+
+  /* About Section */
   #about {
     padding: 5rem 4rem;
   }
+
+  /* Highlights Section */
   #highlights {
     gap: 3rem;
   }
   .highlight h3 {
     font-size: 2rem;
+  }
+
+  /* Hide the burger icon */
+  .nav-toggle-label {
+    display: none; /* Hides the burger icon */
+  }
+
+  /* Display menu as a row on the top right */
+  nav {
+    display: flex;
+    position: static;
+    background-color: transparent;
+    box-shadow: none;
+    justify-content: flex-end;
+    transition: ease-in 0.9s;
+  }
+
+  /* Adjust menu items */
+  #menu {
+    display: flex;
+    gap: 1.5rem; /* Space between menu items */
+  }
+
+  #menu li {
+    margin: 0;
+  }
+
+  #menu a {
+    color: white;
+    font-size: 1.2rem;
+    background-color: transparent;
+    padding: 0;
+    text-decoration: none;
   }
 }

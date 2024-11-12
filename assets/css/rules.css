@@ -46,7 +46,7 @@ nav {
   padding: 1rem 0;
   border-radius: 0 0 8px 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-  z-index: 2;
+  z-index: 988;
 }
 
 #menu {
@@ -146,10 +146,7 @@ footer {
   font-size: 1.5rem;
   text-decoration: none;
   transition: color 0.3s ease;
-}
-
-#social-networks a:hover {
-  color: #e3b505; /* Gold color on hover */
+  font-size: 1.8rem;
 }
 
 /* Footer Text */
@@ -164,7 +161,7 @@ footer p {
 /* Style the burger menu icon */
 .nav-toggle-label i {
   color: white;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   cursor: pointer;
 }
 
@@ -214,4 +211,204 @@ main {
   border-left: 5px solid #ffc107;
   background-color: #f9f9f9;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  #logo {
+    white-space: nowrap;
+  }
+  /* Display navigation links in a row */
+  nav {
+    position: static;
+    display: flex;
+    justify-content: flex-end;
+    background-color: transparent;
+    padding: 0;
+    box-shadow: none;
+    transition: ease-in 0.9s;
+  }
+
+  #menu {
+    display: flex;
+    gap: 1rem;
+  }
+
+  #menu li {
+    margin: 0;
+  }
+
+  #menu a {
+    font-size: 1rem;
+    background-color: transparent;
+    padding: 0.5rem;
+  }
+
+  /* Hide burger menu icon */
+  .nav-toggle-label {
+    display: none;
+  }
+
+  /* Main Content - Game Rules Section */
+  #game-rules {
+    padding: 4rem 2rem 3rem;
+    max-width: 90%;
+  }
+
+  #game-rules .intro h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+  }
+
+  #game-rules .intro p {
+    font-size: 1.1rem;
+  }
+
+  #game-rules .rule {
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  #game-rules .rule h3 {
+    font-size: 1.5rem;
+  }
+
+  #game-rules .rule p {
+    font-size: 1.1rem;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  /* Header adjustments */
+  header {
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #logo {
+    font-size: 1.7rem;
+  }
+
+  /* Navigation Links */
+  nav {
+    position: static;
+    display: flex;
+    justify-content: flex-end;
+    background-color: transparent;
+    padding: 0;
+    box-shadow: none;
+    transition: ease-in 0.9s;
+  }
+
+  #menu {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  #menu a {
+    font-size: 1rem;
+    padding: 0;
+    background-color: transparent;
+  }
+
+  /* Hide burger menu icon */
+  .nav-toggle-label {
+    display: none;
+  }
+
+  /* Main Content - Game Rules Section */
+  #game-rules {
+    padding: 4rem 3rem 3rem;
+    max-width: 80%;
+  }
+
+  #game-rules .intro h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  #game-rules .intro p {
+    font-size: 1.2rem;
+  }
+
+  #game-rules .rule {
+    padding: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  #game-rules .rule h3 {
+    font-size: 1.7rem;
+  }
+
+  #game-rules .rule p {
+    font-size: 1.15rem;
+  }
+}
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  /* Header adjustments */
+  header {
+    padding: 1rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  #logo {
+    font-size: 2rem;
+  }
+
+  /* Navigation Links */
+  nav {
+    justify-content: flex-end;
+    transition: ease-in 0.9s;
+  }
+
+  #menu {
+    gap: 1.5rem; /* Increase spacing between menu items */
+  }
+
+  #menu li {
+    margin: 0;
+  }
+
+  #menu a {
+    color: white;
+    font-size: 1.2rem;
+    background-color: transparent;
+    padding: 0;
+    text-decoration: none;
+  }
+
+  /* Main Content - Game Rules Section */
+  #game-rules {
+    padding: 5rem 4rem 3rem;
+    max-width: 70%; /* Narrower max width for better alignment on wide screens */
+  }
+
+  #game-rules .intro h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  #game-rules .intro p {
+    font-size: 1.3rem;
+  }
+
+  #game-rules .rule {
+    padding: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  #game-rules .rule h3 {
+    font-size: 2rem;
+  }
+
+  #game-rules .rule p {
+    font-size: 1.2rem;
+  }
 }
