@@ -1,0 +1,310 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header Styling */
+header {
+  background-color: #222;
+  color: gold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  position: relative;
+}
+
+#logo {
+  color: #e3b505;
+  font-size: 1.5rem;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+}
+
+#nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  display: none;
+  padding: 1rem 0;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 988;
+}
+
+#menu {
+  list-style-type: none;
+  text-align: center;
+}
+
+#menu li {
+  margin: 0.5rem 0;
+}
+
+#menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  display: block;
+  padding: 0.7rem;
+  background-color: #444;
+  border-radius: 4px;
+}
+
+/* Show nav menu when checkbox is checked */
+#nav-toggle:checked ~ nav {
+  display: block;
+}
+
+/* Hero Section */
+#players-hero {
+  background-image: url("/assets/images/football-field.jpg"); /* Update with an actual image URL */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 4rem 1rem;
+  position: relative;
+}
+
+#players-hero h1 {
+  font-size: 2rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+#players-hero p {
+  font-size: 1rem;
+  color: #555;
+  text-align: center;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Section Headings */
+h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin: 1.5rem 0;
+  color: #333;
+}
+
+/* Legendary Players & Iconic Teams Section */
+.players-grid,
+.teams-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 0.5rem;
+}
+
+.player,
+.team {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Player Images */
+.player img {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Team Images */
+.team img {
+  width: 300px; /* Increase width specifically for team images */
+  height: 200px; /* Increase height specifically for team images */
+  object-fit: cover;
+  border-radius: 10%; /* Maintain oval shape */
+  margin: 0 auto;
+  display: block;
+}
+
+.player h3,
+.team h3 {
+  font-size: 1.4rem;
+  color: #333;
+  margin-top: 0.5rem;
+}
+
+.player p,
+.team p {
+  color: #555;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+
+/* Footer Section */
+footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+/* Social Media Icons */
+#social-networks {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+#social-networks li {
+  display: inline;
+}
+
+#social-networks a {
+  color: white;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 1.8rem;
+}
+
+/* Footer Text */
+footer p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #bbb;
+}
+
+@media (min-width: 768px) {
+  #logo {
+    white-space: nowrap;
+  }
+  /* Display navigation links in a row */
+  nav {
+    position: static;
+    display: flex;
+    justify-content: flex-end;
+    background-color: transparent;
+    padding: 0;
+    box-shadow: none;
+    transition: ease-in 0.9s;
+  }
+
+  #menu {
+    display: flex;
+    gap: 1rem;
+  }
+
+  #menu li {
+    margin: 0;
+  }
+
+  #menu a {
+    font-size: 1rem;
+    background-color: transparent;
+    padding: 0.5rem;
+  }
+
+  /* Hide burger menu icon */
+  .nav-toggle-label {
+    display: none;
+  }
+  /* Update Players and Teams Grid to Two Columns */
+  .players-grid,
+  .teams-grid {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* Two columns on tablet and larger screens */
+    gap: 2rem; /* Increase the gap between items */
+    padding: 2rem;
+  }
+
+  /* Hero Section */
+  #players-hero {
+    padding: 6rem 2rem; /* Increase padding for more breathing room on larger screens */
+    text-align: left; /* Align text to the left for a more traditional layout */
+  }
+
+  #players-hero h1 {
+    font-size: 2.5rem; /* Increase font size for the title */
+  }
+
+  #players-hero p {
+    font-size: 1.2rem; /* Increase font size for the description */
+    max-width: 800px; /* Limit max width for easier readability */
+    margin: 0 auto; /* Center the paragraph */
+  }
+
+  /* Team and Player Cards */
+  .player,
+  .team {
+    padding: 1.5rem; /* Add more padding inside cards */
+    max-width: 500px; /* Set a max width to avoid cards becoming too wide */
+    margin: 0 auto; /* Center the cards in the grid */
+  }
+}
+
+@media (min-width: 992px) {
+  /* Header adjustments */
+  header {
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #logo {
+    font-size: 1.7rem;
+  }
+
+  /* Navigation Links */
+  nav {
+    position: static;
+    display: flex;
+    justify-content: flex-end;
+    background-color: transparent;
+    padding: 0;
+    box-shadow: none;
+    transition: ease-in 0.9s;
+  }
+
+  #menu {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  #menu a {
+    font-size: 1rem;
+    padding: 0;
+    background-color: transparent;
+  }
+
+  /* Hide burger menu icon */
+  .nav-toggle-label {
+    display: none;
+  }
+}
