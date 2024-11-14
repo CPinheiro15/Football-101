@@ -216,7 +216,6 @@ footer {
   color: white;
   font-size: 1.5rem;
   text-decoration: none;
-  transition: color 0.3s ease;
   font-size: 1.8em;
 }
 
@@ -228,11 +227,13 @@ footer p {
 }
 
 /* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) {
+@media (min-width: 768px) {  
+  /* Logo */
   #logo {
     white-space: nowrap;
   }
-  /* Display navigation links in a row */
+
+  /* Navigation styles */
   nav {
     position: static;
     display: flex;
@@ -243,31 +244,40 @@ footer p {
     transition: ease-in 0.9s;
   }
 
+  /* Menu container */
   #menu {
     display: flex;
     gap: 1rem;
   }
 
+  /* Menu list items */
   #menu li {
     margin: 0;
   }
 
+  /* Menu links */
   #menu a {
     font-size: 1rem;
     background-color: transparent;
     padding: 0.5rem;
+    color: white; /* Ensures visibility */
+    text-decoration: none;
   }
 
   /* Hide burger menu icon */
   .nav-toggle-label {
     display: none;
   }
+
+  /* Hero Section */
   #hero h1 {
     font-size: 2.5rem;
   }
   #hero p {
     font-size: 1.2rem;
   }
+
+  /* About Section */
   #about {
     padding: 3rem 2rem;
   }
@@ -277,6 +287,8 @@ footer p {
   #about p {
     font-size: 1.1rem;
   }
+
+  /* Highlights Section */
   #highlights {
     flex-direction: row;
     justify-content: space-around;
@@ -290,81 +302,57 @@ footer p {
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+  /* Header overrides */
   header {
     padding: 1rem 1.5rem;
-    display: flex; /* Ensures the header elements align horizontally */
+    display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
+  /* Logo font size adjustment */
   #logo {
     font-size: 1.7rem;
-    white-space: nowrap; /* Prevents "Football 101" from breaking onto two lines */
   }
 
-  /* Hide burger icon */
-  .nav-toggle-label {
-    display: none;
-  }
-
-  /* Display navigation links in a row */
-  nav {
-    display: flex;
-    position: static; /* Remove dropdown positioning */
-    background-color: transparent;
-    box-shadow: none;
-    transition: ease-in 0.9s;
-  }
-
+  /* Menu container adjustments */
   #menu {
-    display: flex;
-    gap: 1.5rem; /* Space between menu items */
-    margin-left: auto; /* Aligns menu to the right */
+    gap: 1.5rem;
+    margin-left: auto;
   }
 
-  #menu li {
-    margin: 0;
-  }
-
+  /* Menu links adjustments */
   #menu a {
     font-size: 1rem;
-    background-color: transparent;
     padding: 0;
-    color: white; /* Ensure link color visibility */
-    text-decoration: none;
   }
 
-  /* Hero Section */
+  /* Hero Section adjustments */
   #hero {
     padding: 6rem 2rem;
   }
-
   #hero h1 {
     font-size: 3rem;
   }
-
   #hero p {
     font-size: 1.5rem;
   }
 
-  /* About Section */
+  /* About Section adjustments */
   #about {
     padding: 4rem 3rem;
   }
-
   #about h2 {
     font-size: 2.5rem;
   }
-
   #about p {
     font-size: 1.2rem;
   }
 
-  /* Highlights Section */
+  /* Highlights Section adjustments */
   #highlights {
     gap: 2rem;
   }
-
   .highlight {
     padding: 2.5rem;
   }
@@ -372,22 +360,18 @@ footer p {
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-  /* Adjust header padding */
+  /* Header padding adjustment */
   header {
     padding: 1rem 2.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     gap: 1rem;
   }
 
-  /* Adjust logo font size to prevent wrapping */
+  /* Logo font size adjustment */
   #logo {
     font-size: 2rem;
-    white-space: nowrap;
   }
 
-  /* Hero Section */
+  /* Hero Section adjustments */
   #hero {
     padding: 8rem 3rem;
   }
@@ -398,12 +382,12 @@ footer p {
     font-size: 1.75rem;
   }
 
-  /* About Section */
+  /* About Section padding adjustment */
   #about {
     padding: 5rem 4rem;
   }
 
-  /* Highlights Section */
+  /* Highlights Section adjustments */
   #highlights {
     gap: 3rem;
   }
@@ -411,36 +395,8 @@ footer p {
     font-size: 2rem;
   }
 
-  /* Hide the burger icon */
-  .nav-toggle-label {
-    display: none; /* Hides the burger icon */
-  }
-
-  /* Display menu as a row on the top right */
-  nav {
-    display: flex;
-    position: static;
-    background-color: transparent;
-    box-shadow: none;
-    justify-content: flex-end;
-    transition: ease-in 0.9s;
-  }
-
-  /* Adjust menu items */
-  #menu {
-    display: flex;
-    gap: 1.5rem; /* Space between menu items */
-  }
-
-  #menu li {
-    margin: 0;
-  }
-
+  /* Menu links font-size adjustment */
   #menu a {
-    color: white;
     font-size: 1.2rem;
-    background-color: transparent;
-    padding: 0;
-    text-decoration: none;
   }
 }

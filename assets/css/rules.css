@@ -81,14 +81,14 @@ nav {
 }
 
 #game-rules .intro {
-  margin-top: -0.5rem;
+  margin-top: -2.5rem;
 }
 
 #game-rules .intro h2 {
   font-size: 2rem;
   color: #222;
   text-align: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 #game-rules .intro p {
@@ -145,7 +145,6 @@ footer {
   color: white;
   font-size: 1.5rem;
   text-decoration: none;
-  transition: color 0.3s ease;
   font-size: 1.8rem;
 }
 
@@ -262,6 +261,7 @@ main {
 
   #game-rules .intro p {
     font-size: 1.1rem;
+    max-width: 750px;
   }
 
   #game-rules .rule {
@@ -326,12 +326,14 @@ main {
   }
 
   #game-rules .intro h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+    font-size: 2.8rem;
+    margin-bottom: 1.3rem;
+    margin-top: 1.5em;
   }
 
   #game-rules .intro p {
     font-size: 1.2rem;
+    max-width: 850px;
   }
 
   #game-rules .rule {

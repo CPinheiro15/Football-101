@@ -75,90 +75,109 @@ nav {
 
 /* Hero Section */
 #players-hero {
-  background-image: url("/assets/images/football-field.jpg"); /* Update with an actual image URL */
-  background-size: cover;
-  background-position: center;
-  color: white;
-  text-align: center;
-  padding: 4rem 1rem;
-  position: relative;
+  padding: 6rem 1.5rem 3rem;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: -2.5rem;
 }
 
 #players-hero h1 {
   font-size: 2rem;
-  color: #333;
+  color: #222;
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.3rem;
 }
 
 #players-hero p {
   font-size: 1rem;
-  color: #555;
+  color: #666;
   text-align: center;
-  line-height: 1.6;
   max-width: 700px;
-  margin: 0 auto;
+  margin: 0 auto 1.5rem;
 }
 
-/* Section Headings */
-h2 {
+/* Legendary Players Section */
+#legendary-players {
+  padding: 1.5rem 1rem;
+}
+
+#legendary-players h2 {
+  font-size: 1.5rem;
   text-align: center;
-  font-size: 1.8rem;
-  margin: 1.5rem 0;
-  color: #333;
+  margin-bottom: 1rem;
+  color: #e3b505;
 }
 
-/* Legendary Players & Iconic Teams Section */
-.players-grid,
-.teams-grid {
+.players-grid {
   display: grid;
-  grid-template-columns: 1fr;
   gap: 1.5rem;
-  padding: 0.5rem;
 }
 
-.player,
-.team {
-  background-color: #fff;
+.player {
+  background-color: white;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   padding: 1rem;
   text-align: center;
 }
 
-/* Player Images */
 .player img {
   width: 100%;
-  max-width: 150px;
-  height: auto;
-  border-radius: 50%;
-  margin: 0 auto;
-  display: block;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
 }
 
-/* Team Images */
-.team img {
-  width: 300px; /* Increase width specifically for team images */
-  height: 200px; /* Increase height specifically for team images */
-  object-fit: cover;
-  border-radius: 10%; /* Maintain oval shape */
-  margin: 0 auto;
-  display: block;
+.player h3 {
+  font-size: 1.3rem;
+  color: #222;
+  margin-bottom: 0.5rem;
 }
 
-.player h3,
-.team h3 {
-  font-size: 1.4rem;
-  color: #333;
-  margin-top: 0.5rem;
-}
-
-.player p,
-.team p {
+.player p {
+  font-size: 1.1rem;
   color: #555;
-  font-size: 1rem;
-  margin-top: 0.5rem;
-  line-height: 1.5;
+}
+
+/* Iconic Teams Section */
+#iconic-teams {
+  padding: 1.5rem 1rem;
+}
+
+#iconic-teams h2 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #e3b505;
+}
+
+.teams-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.team {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  text-align: center;
+}
+
+.team img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.team h3 {
+  font-size: 1.3rem;
+  color: #222;
+  margin-bottom: 0.5rem;
+}
+
+.team p {
+  font-size: 1.1rem;
+  color: #555;
 }
 
 /* Footer Section */
@@ -187,7 +206,6 @@ footer {
   color: white;
   font-size: 1.5rem;
   text-decoration: none;
-  transition: color 0.3s ease;
   font-size: 1.8rem;
 }
 
@@ -232,39 +250,68 @@ footer p {
   .nav-toggle-label {
     display: none;
   }
-  /* Update Players and Teams Grid to Two Columns */
-  .players-grid,
-  .teams-grid {
-    grid-template-columns: repeat(
-      2,
-      1fr
-    ); /* Two columns on tablet and larger screens */
-    gap: 2rem; /* Increase the gap between items */
-    padding: 2rem;
-  }
 
   /* Hero Section */
   #players-hero {
-    padding: 6rem 2rem; /* Increase padding for more breathing room on larger screens */
-    text-align: left; /* Align text to the left for a more traditional layout */
+    padding: 8rem 2rem 4rem;
+    max-width: 900px;
   }
 
   #players-hero h1 {
-    font-size: 2.5rem; /* Increase font size for the title */
+    font-size: 2.5rem;
   }
 
   #players-hero p {
-    font-size: 1.2rem; /* Increase font size for the description */
-    max-width: 800px; /* Limit max width for easier readability */
-    margin: 0 auto; /* Center the paragraph */
+    font-size: 1.1rem;
+    max-width: 800px;
   }
 
-  /* Team and Player Cards */
-  .player,
-  .team {
-    padding: 1.5rem; /* Add more padding inside cards */
-    max-width: 500px; /* Set a max width to avoid cards becoming too wide */
-    margin: 0 auto; /* Center the cards in the grid */
+  .player img {
+    width: 100%;
+    height: 450px; /* Set a fixed height for player images */
+    object-fit: cover; /* Ensures the image scales properly */
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Team Images */
+  .team img {
+    width: 100%;
+    height: 170px; /* Set a fixed height for team images */
+    object-fit: cover; /* Ensures the image scales properly */
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Legendary Players Section */
+  #legendary-players {
+    padding: 2rem 1.5rem;
+  }
+
+  #legendary-players h2 {
+    font-size: 1.8rem;
+  }
+
+  .players-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .player h3 {
+    font-size: 1.5rem;
+  }
+
+  #iconic-teams h2 {
+    font-size: 1.8rem;
+  }
+
+  .teams-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .team h3 {
+    font-size: 1.5rem;
   }
 }
 
@@ -306,5 +353,194 @@ footer p {
   /* Hide burger menu icon */
   .nav-toggle-label {
     display: none;
+  }
+  @media (min-width: 992px) {
+    /* Hero Section */
+    #players-hero {
+      padding: 8rem 2rem 4rem;
+      max-width: 1000px;
+    }
+
+    #players-hero h1 {
+      font-size: 3rem;
+    }
+
+    #players-hero p {
+      font-size: 1.3rem;
+      max-width: 850px;
+    }
+
+    .player img {
+      width: 100%;
+      height: 750px; /* Set a fixed height for player images */
+      object-fit: cover; /* Ensures the image scales properly */
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Team Images */
+    .team img {
+      width: 100%;
+      height: 270px; /* Set a fixed height for team images */
+      object-fit: cover; /* Ensures the image scales properly */
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Legendary Players Section */
+    #legendary-players {
+      padding: 2rem 2rem;
+    }
+
+    #legendary-players h2 {
+      font-size: 2rem;
+    }
+
+    .players-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .player h3 {
+      font-size: 1.5rem;
+    }
+
+    .player p {
+      font-size: 1.2rem;
+    }
+
+    /* Iconic Teams Section */
+    #iconic-teams {
+      padding: 2rem 2rem;
+    }
+
+    #iconic-teams h2 {
+      font-size: 2rem;
+    }
+
+    .teams-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .team h3 {
+      font-size: 1.5rem;
+    }
+
+    .team p {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  /* Header adjustments */
+  header {
+    padding: 1rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  #logo {
+    font-size: 2rem;
+  }
+
+  /* Navigation Links */
+  nav {
+    justify-content: flex-end;
+    transition: ease-in 0.9s;
+  }
+
+  #menu {
+    gap: 1.5rem; /* Increase spacing between menu items */
+  }
+
+  #menu li {
+    margin: 0;
+  }
+
+  #menu a {
+    color: white;
+    font-size: 1.2rem;
+    background-color: transparent;
+    padding: 0;
+    text-decoration: none;
+  }
+  /* Hero Section */
+  #players-hero {
+    padding: 8rem 2rem 4rem;
+    max-width: 1000px;
+  }
+
+  #players-hero h1 {
+    font-size: 3rem;
+  }
+
+  #players-hero p {
+    font-size: 1.2rem;
+    max-width: 900px;
+  }
+
+  .player img {
+    width: 100%;
+    height: 1250px; /* Set a fixed height for player images */
+    object-fit: cover; /* Ensures the image scales properly */
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Team Images */
+  .team img {
+    width: 100%;
+    height: 570px; /* Set a fixed height for team images */
+    object-fit: cover; /* Ensures the image scales properly */
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Legendary Players Section */
+  #legendary-players {
+    padding: 2rem 2rem;
+  }
+
+  #legendary-players h2 {
+    font-size: 2.5rem;
+  }
+
+  .players-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .player h3 {
+    font-size: 1.75rem;
+  }
+
+  .player p {
+    font-size: 1.5rem;
+  }
+
+  /* Iconic Teams Section */
+  #iconic-teams {
+    padding: 2rem 2rem;
+  }
+
+  #iconic-teams h2 {
+    font-size: 2.5rem;
+  }
+
+  .teams-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .team h3 {
+    font-size: 1.75rem;
+  }
+
+  .team p {
+    font-size: 1.5rem;
   }
 }
