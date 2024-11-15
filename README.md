@@ -1,11 +1,11 @@
 # Football-101 ⚽
 
+**An engaging guide for newcomers to the beautiful game.**
+
 ## Responsive Design
 
 Football-101 is fully responsive and optimized for various devices, ensuring an enjoyable experience on desktops, tablets, and mobile phones.
 ![Responsive Design](assets/images/Devices.png)
-
-**An engaging guide for newcomers to the beautiful game.**
 
 ## Website Objective
 
