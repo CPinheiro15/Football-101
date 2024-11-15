@@ -484,20 +484,20 @@ footer p {
   }
 
   .player img {
-    width: 100%;
-    height: 1250px; /* Set a fixed height for player images */
+    width: 60%;
+    height: 350px; /* Set a fixed height for player images */
     object-fit: cover; /* Ensures the image scales properly */
     border-radius: 8px;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
   }
 
   /* Team Images */
   .team img {
     width: 100%;
-    height: 570px; /* Set a fixed height for team images */
+    height: 240px; /* Set a fixed height for team images */
     object-fit: cover; /* Ensures the image scales properly */
     border-radius: 8px;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6 rem;
   }
 
   /* Legendary Players Section */
@@ -519,7 +519,8 @@ footer p {
   }
 
   .player p {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    margin-top: 1em;
   }
 
   /* Iconic Teams Section */
@@ -542,5 +543,6 @@ footer p {
 
   .team p {
     font-size: 1.5rem;
+    margin-top: 1em;
   }
 }
