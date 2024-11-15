@@ -73,13 +73,13 @@ nav {
 
 /* Hero Section with Improved Centering */
 #overlay {
-  background-image: url("/assets/images/image57.jpg"); /* Replace with your background image URL */
+  background-image: url("/assets/images/image57.jpg");
   background-size: cover;
   background-position: center;
   position: relative;
   text-align: center;
   color: white;
-  min-height: 70vh; /* Increases the hero section height */
+  min-height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -92,13 +92,13 @@ nav {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  background: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 
 #hero {
   position: relative;
-  z-index: 2; /* Ensures text is above overlay */
+  z-index: 2;
   max-width: 600px;
   padding: 2rem 1rem;
 }
@@ -128,10 +128,10 @@ nav {
 
 /* About Section */
 #about {
-  background-color: #f4f4f4; /* Light gray background for contrast */
+  background-color: #f4f4f4;
   text-align: center;
   padding: 2rem 1rem;
-  color: #333; /* Darker text for readability */
+  color: #333;
 }
 
 #about h2 {
@@ -155,18 +155,18 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem; /* Space between cards */
+  gap: 1.5rem;
 }
 
 .highlight {
-  background-color: #e3b505; /* Gold color for highlight cards */
+  background-color: #e3b505;
   color: white;
   padding: 1.5rem;
   border-radius: 8px;
   text-align: center;
   width: 100%;
-  max-width: 300px; /* Limit max width for mobile view */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  max-width: 300px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .highlight h3 {
@@ -192,7 +192,7 @@ nav {
 
 /* Footer Section */
 footer {
-  background-color: #222; /* Dark background for contrast */
+  background-color: #222;
   color: white;
   text-align: center;
   padding: 1.5rem 1rem;
@@ -204,7 +204,7 @@ footer {
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: 1rem; /* Space between icons */
+  gap: 1rem;
   margin-bottom: 1rem;
 }
 
@@ -223,11 +223,11 @@ footer {
 footer p {
   margin: 0;
   font-size: 0.8rem;
-  color: #bbb; /* Slightly lighter text for contrast */
+  color: #bbb;
 }
 
 /* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) {  
+@media (min-width: 768px) {
   /* Logo */
   #logo {
     white-space: nowrap;
@@ -260,7 +260,7 @@ footer p {
     font-size: 1rem;
     background-color: transparent;
     padding: 0.5rem;
-    color: white; /* Ensures visibility */
+    color: white;
     text-decoration: none;
   }
 

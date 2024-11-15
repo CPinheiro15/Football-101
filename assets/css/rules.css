@@ -155,8 +155,6 @@ footer p {
   color: #bbb;
 }
 
-/* Additional Styles for Remaining Elements */
-
 /* Style the burger menu icon */
 .nav-toggle-label i {
   color: white;
@@ -314,11 +312,6 @@ main {
     background-color: transparent;
   }
 
-  /* Hide burger menu icon */
-  .nav-toggle-label {
-    display: none;
-  }
-
   /* Main Content - Game Rules Section */
   #game-rules {
     padding: 4rem 3rem 3rem;
@@ -371,7 +364,7 @@ main {
   }
 
   #menu {
-    gap: 1.5rem; /* Increase spacing between menu items */
+    gap: 1.5rem;
   }
 
   #menu li {
@@ -389,7 +382,7 @@ main {
   /* Main Content - Game Rules Section */
   #game-rules {
     padding: 5rem 4rem 3rem;
-    max-width: 70%; /* Narrower max width for better alignment on wide screens */
+    max-width: 70%;
   }
 
   #game-rules .intro h2 {
