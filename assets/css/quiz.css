@@ -125,7 +125,7 @@ nav {
   border-radius: 8px;
   padding: 0.6rem 1rem;
   font-size: 1rem;
-  width: 90%; /* Full width for smaller screens */
+  width: 90%; 
   max-width: 85%;
 }
 
@@ -159,46 +159,46 @@ nav {
 
 /* Option Buttons */
 .option-btn {
-  background-color: #e3b505; /* Gold background for options */
+  background-color: #e3b505; 
   color: white;
-  padding: 0.8rem; /* Adequate padding for better touch experience */
-  margin: 0.5rem 0; /* Spacing between options */
-  border-radius: 6px; /* Rounded corners for options */
+  padding: 0.8rem; 
+  margin: 0.5rem 0; 
+  border-radius: 6px; 
   text-align: center;
-  font-size: 1rem; /* Font size for readability */
-  border: none; /* Remove default button border */
-  width: 100%; /* Full width for better touch area */
+  font-size: 1rem; 
+  border: none; 
+  width: 100%; 
 }
 
 .option-btn.correct {
   background-color: green;
   border: 2px solid green;
-  color: white; /* Optional for better visibility */
+  color: white; 
 }
 
 .option-btn.incorrect {
   background-color: red;
   border: 2px solid red;
-  color: white; /* Optional for better visibility */
+  color: white; 
 }
 
 /* Timer */
 #timer {
   font-size: 1rem;
   margin: 1rem 0;
-  color: #d9534f; /* Red color for urgency */
+  color: #d9534f; 
   text-align: center;
 }
 
 /* Next Button */
 #next-btn {
-  background-color: #333; /* Dark background */
+  background-color: #333; 
   color: white;
   border: none;
   padding: 0.8rem 1.2rem;
   border-radius: 6px;
   font-size: 1rem;
-  width: 100%; /* Full width for better touch area */
+  width: 100%; /
 }
 
 /* Results Section */
@@ -231,26 +231,26 @@ nav {
 }
 
 #results-section .feedback-message {
-  font-size: 1.25rem; /* Match score text */
-  font-weight: bold; /* Make it stand out */
-  color: #333; /* Default color */
-  margin-top: 1rem; /* Space above feedback */
+  font-size: 1.25rem;
+  font-weight: bold; 
+  color: #333; 
+  margin-top: 1rem; 
 }
 
 #results-section .feedback-message.low-score {
-  color: #d9534f; /* Red for low scores */
+  color: #d9534f; 
 }
 
 #results-section .feedback-message.moderate-score {
-  color: #f0ad4e; /* Orange for moderate scores */
+  color: #f0ad4e; 
 }
 
 #results-section .feedback-message.great-job {
-  color: #5bc0de; /* Blue for great job */
+  color: #5bc0de; 
 }
 
 #results-section .feedback-message.perfect-score {
-  color: #5cb85c; /* Green for perfect score */
+  color: #5cb85c; 
 }
 
 #results-section button {
@@ -261,7 +261,7 @@ nav {
   margin: 0.5rem;
   border: none;
   border-radius: 5px;
-  width: calc(100% - 2rem); /* Full width for mobile */
+  width: calc(100% - 2rem); 
 }
 
 /* Try Again Message */
