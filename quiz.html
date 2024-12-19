@@ -1,11 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Football 101 - Quiz</title>
+    <link rel="stylesheet" href="assets/css/quiz.css" />
+  </head>
+  <body>
+    <!--Header-->
+    <header>
+      <a href="index.html" aria-label="Go to homepage">
+        <h1 id="logo">Football 101</h1>
+      </a>
+      <!-- Checkbox for toggling menu -->
+      <input
+        type="checkbox"
+        id="nav-toggle"
+        class="nav-toggle"
+        aria-label="Toggle navigation"
+      />
+      <!-- Label for the checkbox, acting as the burger icon -->
+      <label
+        for="nav-toggle"
+        class="nav-toggle-label"
+        aria-label="Open navigation menu"
+      >
+        <i class="fa-solid fa-bars"></i>
+      </label>
+
+      <!-- Navigation Links -->
+      <nav>
+        <ul id="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="rules.html">Rules</a></li>
+          <li><a href="famous.html">Legends</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Page Title Section -->
+    <section id="football-quiz">
+      <h2>Football Quiz</h2>
+      <p>
+        Discover the legends and the teams that have left an unforgettable mark
+        on football history.
+      </p>
+    </section>
+
+    <!-- Category Selection Section -->
+    <section id="category-section">
+      <h3>Select a Category</h3>
+      <div id="categories">
+        <button class="category-btn" data-category="random">Random</button>
+        <button class="category-btn" data-category="worldCup">World Cup</button>
+        <button class="category-btn" data-category="premierLeague">
+          Premier League
+        </button>
+        <button class="category-btn" data-category="championsLeague">
+          Champions League
+        </button>
+        <button class="category-btn" data-category="iconicPlayers">
+          Iconic Players
+        </button>
+        <button class="category-btn" data-category="footballRules">
+          Football Rules
+        </button>
+      </div>
+    </section>
+
+    <!-- Quiz Display Section -->
+    <section id="quiz-section" class="hidden">
+      <div id="question-counter">Question 1/10</div>
+      <h2 id="question">Question Placeholder</h2>
+      <ul id="options"></ul>
+      <div id="try-again-msg" class="try-again-msg hidden"></div>
+      <div id="timer">Time left: <span id="time">15</span>s</div>
+      <button id="next-btn" class="hidden">Next</button>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results-section" class="hidden">
+      <h2>Quiz Complete!</h2>
+      <p>Your Score: <span id="score">0</span></p>
+      <div id="gif-container"></div>
+      <p id="feedback-message" class="feedback-message"></p>
+      <button id="restart-btn">Restart Quiz</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <ul id="social-networks">
+        <li>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener"
+            ><i class="fa-brands fa-facebook"></i
+          ></a>
+        </li>
+        <li>
+          <a href="https://www.twitter.com/" target="_blank" rel="noopener"
+            ><i class="fa-brands fa-twitter"></i
+          ></a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener"
+            ><i class="fa-brands fa-youtube"></i
+          ></a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+        </li>
+      </ul>
+      <p>
+        &copy; 2024 Football 101. All rights reserved. Created by Craigan
+        Pinheiro.
+      </p>
+
+      <!-- Font Awesome Kit -->
+      <script
+        src="https://kit.fontawesome.com/e3a9c0b01e.js"
+        crossorigin="anonymous"
+      ></script>
+    </footer>
+    <script src="quiz.js"></script>
+  </body>
 </html>

@@ -1,0 +1,507 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header Styles */
+header {
+  background-color: #222;
+  color: gold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  position: relative;
+}
+
+#logo {
+  color: #e3b505;
+  font-size: 1.5rem;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+}
+
+#nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  display: none;
+  padding: 0.25rem 0;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+}
+
+#menu {
+  list-style-type: none;
+  text-align: center;
+}
+
+#menu li {
+  margin: 0.45rem 0;
+}
+
+#menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.15rem;
+  display: block;
+  padding: 0.6rem;
+  background-color: #444;
+  border-radius: 7px;
+}
+
+/* Show nav menu when checkbox is checked */
+#nav-toggle:checked ~ nav {
+  display: block;
+}
+
+/* Main Content Section Styles */
+#football-quiz {
+  margin-top: 3.5rem;
+}
+
+#football-quiz h2 {
+  font-size: 2rem;
+  color: #222;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+#football-quiz p {
+  font-size: 1rem;
+  color: #666;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+#category-section {
+  text-align: center;
+  margin: 2rem 0;
+  padding: 1rem;
+}
+
+#category-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+#categories {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.category-btn {
+  background-color: #e3b505;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  width: 90%; /* Full width for smaller screens */
+  max-width: 85%;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Quiz Section */
+#quiz-section {
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  max-width: 90%;
+  margin: 2rem auto;
+}
+
+#question-counter {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+#question {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+/* Option Buttons */
+.option-btn {
+  background-color: #e3b505; /* Gold background for options */
+  color: white;
+  padding: 0.8rem; /* Adequate padding for better touch experience */
+  margin: 0.5rem 0; /* Spacing between options */
+  border-radius: 6px; /* Rounded corners for options */
+  text-align: center;
+  font-size: 1rem; /* Font size for readability */
+  border: none; /* Remove default button border */
+  width: 100%; /* Full width for better touch area */
+}
+
+.option-btn.correct {
+  background-color: green;
+  border: 2px solid green;
+  color: white; /* Optional for better visibility */
+}
+
+.option-btn.incorrect {
+  background-color: red;
+  border: 2px solid red;
+  color: white; /* Optional for better visibility */
+}
+
+/* Timer */
+#timer {
+  font-size: 1rem;
+  margin: 1rem 0;
+  color: #d9534f; /* Red color for urgency */
+  text-align: center;
+}
+
+/* Next Button */
+#next-btn {
+  background-color: #333; /* Dark background */
+  color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%; /* Full width for better touch area */
+}
+
+/* Results Section */
+#results-section {
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem 1rem;
+  max-width: 100%;
+  margin: 2rem auto;
+  text-align: center;
+  margin-top: 3.3rem;
+}
+
+#results-section h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+#results-section p {
+  font-size: 1.25rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.responsive-gif {
+  width: 100%;
+  height: auto;
+}
+
+#results-section .feedback-message {
+  font-size: 1.25rem; /* Match score text */
+  font-weight: bold; /* Make it stand out */
+  color: #333; /* Default color */
+  margin-top: 1rem; /* Space above feedback */
+}
+
+#results-section .feedback-message.low-score {
+  color: #d9534f; /* Red for low scores */
+}
+
+#results-section .feedback-message.moderate-score {
+  color: #f0ad4e; /* Orange for moderate scores */
+}
+
+#results-section .feedback-message.great-job {
+  color: #5bc0de; /* Blue for great job */
+}
+
+#results-section .feedback-message.perfect-score {
+  color: #5cb85c; /* Green for perfect score */
+}
+
+#results-section button {
+  background-color: #e3b505;
+  color: white;
+  font-size: 1rem;
+  padding: 0.75rem;
+  margin: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  width: calc(100% - 2rem); /* Full width for mobile */
+}
+
+/* Try Again Message */
+.try-again-msg {
+  color: red;
+  margin: 10px;
+  display: none;
+}
+
+.try-again-msg.visible {
+  display: block;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+/* Social Media Icons */
+#social-networks {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+#social-networks li {
+  display: inline;
+}
+
+#social-networks a {
+  color: white;
+  font-size: 1.5rem;
+  text-decoration: none;
+  font-size: 1.8em;
+}
+
+/* Footer Text */
+footer p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #bbb;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  /* Logo */
+  #logo {
+    white-space: nowrap;
+  }
+
+  /* Navigation styles */
+  nav {
+    position: static;
+    display: flex;
+    justify-content: flex-end;
+    background-color: transparent;
+    padding: 0;
+    box-shadow: none;
+    transition: ease-in 0.9s;
+  }
+
+  /* Menu container */
+  #menu {
+    display: flex;
+    gap: 1rem;
+  }
+
+  /* Menu list items */
+  #menu li {
+    margin: 0;
+  }
+
+  /* Menu links */
+  #menu a {
+    font-size: 1rem;
+    background-color: transparent;
+    padding: 0.5rem;
+    color: white;
+    text-decoration: none;
+  }
+
+  /* Hide burger menu icon */
+  .nav-toggle-label {
+    display: none;
+  }
+
+  #football-quiz h2 {
+    font-size: 2.5rem;
+  }
+
+  #football-quiz p {
+    font-size: 1.1rem;
+  }
+
+  #category-section h3 {
+    font-size: 1.8rem;
+  }
+  .category-btn {
+    padding: 1.1rem;
+    font-size: 1.1rem;
+  }
+
+  #question-counter {
+    font-size: 1.4rem;
+  }
+  #question {
+    font-size: 1.7rem;
+  }
+  .option-btn {
+    padding: 1.1rem;
+    font-size: 1.1rem;
+  }
+  #timer {
+    font-size: 1.2rem;
+  }
+  #next-btn {
+    padding: 1.1rem;
+    font-size: 1.1rem;
+  }
+  .try-again-msg {
+    font-size: 1.1rem;
+  }
+  #results-section {
+    margin: 3rem 2rem;
+  }
+  #results-section h2 {
+    font-size: 1.7rem;
+  }
+  #results-section p {
+    font-size: 1.3rem;
+  }
+  .responsive-gif {
+    width: 80%;
+    height: auto;
+  }
+  #results-section .feedback-message {
+    font-size: 1.4rem;
+  }
+  #results-section button {
+    padding: 1.1rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  /* Header adjustments */
+  header {
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #logo {
+    font-size: 1.7rem;
+  }
+
+  /* Navigation Links */
+  nav {
+    position: static;
+    display: flex;
+    justify-content: flex-end;
+    background-color: transparent;
+    padding: 0;
+    box-shadow: none;
+    transition: ease-in 0.9s;
+  }
+
+  #menu {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  #menu a {
+    font-size: 1rem;
+    padding: 0;
+    background-color: transparent;
+  }
+  #football-quiz h2 {
+    font-size: 3rem;
+  }
+
+  #football-quiz p {
+    font-size: 1.3rem;
+  }
+
+  #category-section h3 {
+    font-size: 2rem;
+  }
+  .category-btn {
+    padding: 1.3rem;
+    font-size: 1.3rem;
+  }
+
+  #question-counter {
+    font-size: 1.5rem;
+  }
+  #question {
+    font-size: 1.8rem;
+  }
+  .option-btn {
+    padding: 1.3rem;
+    font-size: 1.3rem;
+  }
+  #timer {
+    font-size: 1.3rem;
+  }
+  #next-btn {
+    padding: 1.3rem;
+    font-size: 1.3rem;
+  }
+  .try-again-msg {
+    font-size: 1.4rem;
+  }
+  #results-section {
+    margin: 3rem 3rem;
+  }
+  #results-section h2 {
+    font-size: 2rem;
+  }
+  #results-section p {
+    font-size: 1.4rem;
+  }
+  .responsive-gif {
+    width: 60%;
+    height: auto;
+  }
+  #results-section .feedback-message {
+    font-size: 1.4rem;
+  }
+  #results-section button {
+    padding: 1.3rem;
+    font-size: 1.3rem;
+  }
+}
