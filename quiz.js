@@ -524,15 +524,15 @@ function endQuiz() {
 
 // Restart Quiz (Redirect to Category Selection)
 restartBtn.addEventListener("click", () => {
-  resultsSection.style.display = "none"; // Hide results section
-  pageTitleSection.style.display = "block"; // Show the category selection section
-  document.getElementById("category-section").style.display = "block"; // Make sure category section is visible
+  resultsSection.style.display = "none"; 
+  pageTitleSection.style.display = "block"; 
+  document.getElementById("category-section").style.display = "block"; 
 });
 
 // Display Feedback Message
 function displayFeedbackMessage() {
   feedbackMessage.className = "feedback-message";
-  gifContainer.innerHTML = ""; // Clear the container before adding new content
+  gifContainer.innerHTML = ""; 
 
   // Decide feedback and GIF based on score
   if (score === currentCategory.length) {
