@@ -1,3 +1,5 @@
+/* jshint esversion: 6 */
+
 // Quiz Data with Questions and Answers
 const quizData = {
   worldCup: [
@@ -387,7 +389,11 @@ const gifContainer = document.getElementById("gif-container");
 categoryButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const category = button.getAttribute("data-category");
-    category === "random" ? loadRandomCategoryQuestions() : startQuiz(category);
+    if (category === "random") {
+      loadRandomCategoryQuestions();
+    } else {
+      startQuiz(category);
+    }
   });
 });
 
@@ -511,7 +517,11 @@ function updateQuestionCounter() {
 // Load Next Question
 nextBtn.addEventListener("click", () => {
   currentQuestionIndex++;
-  currentQuestionIndex < currentCategory.length ? loadQuestion() : endQuiz();
+  if (currentQuestionIndex < currentCategory.length) {
+    loadQuestion();
+  } else {
+    endQuiz();
+  }
 });
 
 // End Quiz
