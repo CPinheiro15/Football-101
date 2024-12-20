@@ -61,14 +61,15 @@ To run the project locally:
 git clone https://github.com/cpinheiro15/Football-101.git
 cd Football-101
 open index.html
+```
 
 ## Usage Instructions
 
-1. Visit the live site at [Football 101](https://your-username.github.io/Football-101/).
+1. Visit the live site at (https://github.com/CPinheiro15/Football-101)
 2. Use the navigation bar to explore the four main pages:
    - **Home**: Overview and introduction to football.
    - **Rules**: Detailed guide to football rules.
-   - **Famous Players**: Learn about iconic players.
+   - **Famous Players**: Learn about iconic players and teams.
    - **Quiz**: Test your football knowledge interactively.
 
 ## Deployment
@@ -79,14 +80,10 @@ The project is hosted using **GitHub Pages**. To deploy:
 2. Ensure the repository settings are configured for GitHub Pages:
    - Navigate to **Settings > Pages**.
    - Select the branch and folder (e.g., `main` and `/root`) to deploy.
-   
-The site will be available at `https://<your-username>.github.io/Football-101/`.
 
 ## Credits
 
-- **Content**: Authored by [Your Name or Team].
-- **Design Inspiration**: Credit any design frameworks or resources.
-- **Code Contributions**: Special thanks to contributors and open-source libraries.
+- **Content**: Authored by Craigan Pinheiro
 
 ## License
 
