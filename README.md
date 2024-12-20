@@ -1,40 +1,81 @@
 # Football-101 ⚽
 
-**An engaging guide for newcomers to the beautiful game.**
+Welcome to **Football 101**, your ultimate guide to understanding the beautiful game. This website simplifies football’s rules, strategies, and history for beginners and enthusiasts alike.
 
 ## Responsive Design
 
-Football-101 is fully responsive and optimized for various devices, ensuring an enjoyable experience on desktops, tablets, and mobile phones.
+Football-101 offers a seamless experience across desktops, tablets, and mobile devices, making it easy to explore the world of football from any device.
+
 ![Responsive Design](assets/images/Devices.png)
 
-## Website Objective
+## Project Purpose
 
-Football-101 is designed to introduce football (soccer) to those who have little or no prior knowledge of the sport. It breaks down the game's rules, its history, legendary players, and iconic teams, making football accessible and enjoyable for everyone.
+Whether you're new to the sport or looking to deepen your knowledge, **Football 101** is designed to provide an accessible and engaging introduction to football. It offers clear explanations, visual aids, and interactive features that make learning fun and easy.
 
-## Target Audience
+## Features Overview
 
-This website is perfect for:
+- **Beginner-Friendly Content**: Step-by-step guides explaining football basics.
+- **Interactive Features**: Engaging quizzes and visual tutorials to enhance learning.
+- **Responsive Design**: Optimized experience for all devices.
+- **Regular Updates**: Content updated regularly to reflect changes in the sport.
 
-- Beginners looking to understand football basics.
-- Fans seeking an easy way to explain the sport to friends or family.
-- Anyone curious about football’s cultural and historical significance.
+## Pages Overview
 
-## Key Features
-
-- **Introduction to Football Rules**: Explains how the game is played, including objectives, fouls, and gameplay mechanics.
-- **Famous Players and Teams**: Showcases iconic players and clubs, highlighting their contributions to the sport.
-- **Football History**: Offers a brief overview of the sport’s origins and evolution.
-- **Simple and Clean Design**: Ensures ease of use for all visitors, regardless of age or technical skills.
+- **Home Page**: Introduction to the site and football.
+- **Rules Page**: Clear, detailed explanations of football rules.
+- **Famous Players Page**: Profiles of iconic football players throughout history.
+- **Quiz Page**: An interactive quiz to test your football knowledge.
 
 ## Technologies Used
 
-- **HTML**: Structures the content and layout of the website.
-- **CSS**: Provides styling and ensures a visually appealing, responsive design.
+Built with **HTML5** for structure, **CSS3** for styling and responsive design, and **JavaScript** for dynamic, interactive features.
+
+## Validation
+
+The project adheres to the latest coding standards, validated with the following tools:
+- **HTML**: [W3C HTML Validator](https://validator.w3.org/)
+- **CSS**: [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
+- **JavaScript**: [JSHint](https://jshint.com/)
 
 ## How to Explore
 
-Visit the live website at [Football-101](https://cpinheiro15.github.io/Football-101/) and navigate through the interactive sections to learn all about football.
+Visit the live website at [Football-101](https://cpinheiro15.github.io/Football-101/) and explore the interactive sections to learn about football in-depth.
 
-## About the Creator
+## Setup and Installation
 
-Football-101 was developed by Craigan Pinheiro to share a love for the sport and make it accessible to everyone, regardless of their level of familiarity.
+To run the project locally:
+
+```bash
+git clone https://github.com/cpinheiro15/Football-101.git
+cd Football-101
+open index.html
+
+## Usage Instructions
+
+1. Visit the live site at [Football 101](https://your-username.github.io/Football-101/).
+2. Use the navigation bar to explore the four main pages:
+   - **Home**: Overview and introduction to football.
+   - **Rules**: Detailed guide to football rules.
+   - **Famous Players**: Learn about iconic players.
+   - **Quiz**: Test your football knowledge interactively.
+
+## Deployment
+
+The project is hosted using **GitHub Pages**. To deploy:
+
+1. Push changes to the main branch of your GitHub repository.
+2. Ensure the repository settings are configured for GitHub Pages:
+   - Navigate to **Settings > Pages**.
+   - Select the branch and folder (e.g., `main` and `/root`) to deploy.
+   
+The site will be available at `https://<your-username>.github.io/Football-101/`.
+
+## Credits
+
+- **Content**: Authored by [Your Name or Team].
+- **Design Inspiration**: Credit any design frameworks or resources.
+- **Code Contributions**: Special thanks to contributors and open-source libraries.
+
+## License
+
+This project is licensed under the **MIT License**. You are free to use, modify, and distribute the project as per the terms of the license.
