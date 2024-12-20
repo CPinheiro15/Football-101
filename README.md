@@ -65,7 +65,7 @@ open index.html
 
 ## Usage Instructions
 
-1. Visit the live site at (https://github.com/CPinheiro15/Football-101)
+1. Visit the live site at (https://cpinheiro15.github.io/Football-101/)
 2. Use the navigation bar to explore the four main pages:
    - **Home**: Overview and introduction to football.
    - **Rules**: Detailed guide to football rules.
