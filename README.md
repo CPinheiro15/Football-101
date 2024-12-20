@@ -26,6 +26,22 @@ Whether you're new to the sport or looking to deepen your knowledge, **Football 
 - **Famous Players Page**: Profiles of iconic football players throughout history.
 - **Quiz Page**: An interactive quiz to test your football knowledge.
 
+## Lighthouse Performance Audit
+
+To ensure optimal performance, we used **Lighthouse** to audit the four main pages of the website. Below are the performance results for each page:
+
+### 1. **index.html**
+![Lighthouse Performance for index.html](![image](https://github.com/user-attachments/assets/37968dd1-e563-4ba7-8a8f-9e6ceef6f09f))
+
+### 2. **rules.html**
+![Lighthouse Performance for rules.html](![image](https://github.com/user-attachments/assets/71bd557e-7274-4cb1-8b5d-804488162e98))
+
+### 3. **famous.html**
+![Lighthouse Performance for famous.html](![image](https://github.com/user-attachments/assets/cd1838bd-bf2c-4225-aa8b-de43acb1fffd))
+
+### 4. **quiz.html**
+![Lighthouse Performance for quiz.html](![image](https://github.com/user-attachments/assets/6e93d364-bdda-4185-9d92-7f27c2e00300))
+
 ## Technologies Used
 
 Built with **HTML5** for structure, **CSS3** for styling and responsive design, and **JavaScript** for dynamic, interactive features.
@@ -37,10 +53,6 @@ The project adheres to the latest coding standards, validated with the following
 - **CSS**: [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
 - **JavaScript**: [JSHint](https://jshint.com/)
 
-## How to Explore
-
-Visit the live website at [Football-101](https://cpinheiro15.github.io/Football-101/) and explore the interactive sections to learn about football in-depth.
-
 ## Setup and Installation
 
 To run the project locally:
@@ -49,7 +61,6 @@ To run the project locally:
 git clone https://github.com/cpinheiro15/Football-101.git
 cd Football-101
 open index.html
-```
 
 ## Usage Instructions
 
