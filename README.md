@@ -48,7 +48,8 @@ To run the project locally:
 ```bash
 git clone https://github.com/cpinheiro15/Football-101.git
 cd Football-101
-open index.html```
+open index.html
+```
 
 ## Usage Instructions
 
