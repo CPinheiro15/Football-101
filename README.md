@@ -40,7 +40,7 @@ Lighthouse Performance for rules.html:(https://github.com/user-attachments/asset
 Lighthouse Performance for famous.html:(https://github.com/user-attachments/assets/cd1838bd-bf2c-4225-aa8b-de43acb1fffd)
 
 ### 4. **quiz.html**
-Lighthouse Performance for quiz.html:!(https://github.com/user-attachments/assets/6e93d364-bdda-4185-9d92-7f27c2e00300)
+Lighthouse Performance for quiz.html:(https://github.com/user-attachments/assets/6e93d364-bdda-4185-9d92-7f27c2e00300)
 
 ## Technologies Used
 
