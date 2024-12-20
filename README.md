@@ -31,16 +31,16 @@ Whether you're new to the sport or looking to deepen your knowledge, **Football 
 To ensure optimal performance, we used **Lighthouse** to audit the four main pages of the website. Below are the performance results for each page:
 
 ### 1. **index.html**
-Lighthouse Performance for index.html:(https://github.com/user-attachments/assets/37968dd1-e563-4ba7-8a8f-9e6ceef6f09f)
+Lighthouse Performance for index.html:![image](https://github.com/user-attachments/assets/37968dd1-e563-4ba7-8a8f-9e6ceef6f09f)
 
 ### 2. **rules.html**
-Lighthouse Performance for rules.html:(https://github.com/user-attachments/assets/71bd557e-7274-4cb1-8b5d-804488162e98)
+Lighthouse Performance for rules.html:![image](https://github.com/user-attachments/assets/71bd557e-7274-4cb1-8b5d-804488162e98)
 
 ### 3. **famous.html**
-Lighthouse Performance for famous.html:(https://github.com/user-attachments/assets/cd1838bd-bf2c-4225-aa8b-de43acb1fffd)
+Lighthouse Performance for famous.html:![image](https://github.com/user-attachments/assets/cd1838bd-bf2c-4225-aa8b-de43acb1fffd)
 
 ### 4. **quiz.html**
-Lighthouse Performance for quiz.html:(https://github.com/user-attachments/assets/6e93d364-bdda-4185-9d92-7f27c2e00300)
+Lighthouse Performance for quiz.html:![image](https://github.com/user-attachments/assets/6e93d364-bdda-4185-9d92-7f27c2e00300)
 
 ## Technologies Used
 
