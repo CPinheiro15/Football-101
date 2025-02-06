@@ -3,28 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Football 101 - Quiz</title>
-    <link rel="stylesheet" href="assets/css/quiz.css" />
+    <!-- Meta tags for search engines -->
+    <meta
+      name="description"
+      content="Log in to Football 101 to explore the world of football, from rules to history and beyond."
+    />
+    <meta
+      name="keywords"
+      content="football, soccer, login, football history, player statistics, football tips"
+    />
+    <title>Football 101 - Login</title>
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/favicon/favicon-16x16.png"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="assets/css/login.css" />
   </head>
   <body>
-    <!--Header-->
+    <!-- Header -->
     <header>
-      <a href="index.html" aria-label="Go to homepage">
+      <a href="index.html">
         <h1 id="logo">Football 101</h1>
       </a>
       <!-- Checkbox for toggling menu -->
-      <input
-        type="checkbox"
-        id="nav-toggle"
-        class="nav-toggle"
-        aria-label="Toggle navigation"
-      />
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
       <!-- Label for the checkbox, acting as the burger icon -->
-      <label
-        for="nav-toggle"
-        class="nav-toggle-label"
-        aria-label="Open navigation menu"
-      >
+      <label for="nav-toggle" class="nav-toggle-label">
         <i class="fa-solid fa-bars"></i>
       </label>
 
@@ -40,54 +59,35 @@
       </nav>
     </header>
 
-    <!-- Page Title Section -->
-    <section id="football-quiz">
-      <h2>Football Quiz</h2>
-      <p>
-        Discover the legends and the teams that have left an unforgettable mark
-        on football history.
-      </p>
-    </section>
-
-    <!-- Category Selection Section -->
-    <section id="category-section">
-      <h3>Select a Category</h3>
-      <div id="categories">
-        <button class="category-btn" data-category="random">Random</button>
-        <button class="category-btn" data-category="worldCup">World Cup</button>
-        <button class="category-btn" data-category="premierLeague">
-          Premier League
-        </button>
-        <button class="category-btn" data-category="championsLeague">
-          Champions League
-        </button>
-        <button class="category-btn" data-category="iconicPlayers">
-          Iconic Players
-        </button>
-        <button class="category-btn" data-category="footballRules">
-          Football Rules
-        </button>
-      </div>
-    </section>
-
-    <!-- Quiz Display Section -->
-    <section id="quiz-section" class="hidden">
-      <div id="question-counter">Question 1/10</div>
-      <h2 id="question">Question Placeholder</h2>
-      <ul id="options"></ul>
-      <div id="try-again-msg" class="try-again-msg hidden"></div>
-      <div id="timer">Time left: <span id="time">15</span>s</div>
-      <button id="next-btn" class="hidden">Next</button>
-    </section>
-
-    <!-- Results Section -->
-    <section id="results-section" class="hidden">
-      <h2>Quiz Complete!</h2>
-      <p>Your Score: <span id="score">0</span></p>
-      <div id="gif-container"></div>
-      <p id="feedback-message" class="feedback-message"></p>
-      <button id="restart-btn">Restart Quiz</button>
-    </section>
+    <!-- Login Section -->
+    <div id="login-container">
+      <section id="login-section">
+        <h2>Login</h2>
+        <p>Access your account and explore the world of football.</p>
+        <form id="login-form">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+          <button type="submit">Login</button>
+          <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+        </form>
+      </section>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -144,6 +144,5 @@
         crossorigin="anonymous"
       ></script>
     </footer>
-    <script src="quiz.js"></script>
   </body>
 </html>
