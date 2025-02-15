@@ -13,7 +13,7 @@
       content="football, soccer, login, football history, player statistics, football tips"
     />
     <title>Football 101 - Login</title>
-    
+
     <!-- Stylesheet -->
     <link rel="stylesheet" href="assets/css/login.css" />
   </head>
@@ -33,11 +33,12 @@
       <!-- Navigation Links -->
       <nav>
         <ul id="menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="rules.html">Rules</a></li>
-          <li><a href="famous.html">Legends</a></li>
-          <li><a href="quiz.html">Quiz</a></li>
-          <li><a href="login.html">Login</a></li>
+          <a href="index.html">Home</a>
+          <a href="rules.html">Rules</a>
+          <a href="famous.html">Legends</a>
+          <a href="quiz.html">Quiz</a>
+          <a id="login-nav" href="login.html">Login</a>
+          <a id="logout-nav" href="#" style="display: none">Logout</a>
         </ul>
       </nav>
     </header>
@@ -127,5 +128,7 @@
         crossorigin="anonymous"
       ></script>
     </footer>
+    <script src="login.js"></script>
+    <script src="navbar.js"></script>
   </body>
 </html>

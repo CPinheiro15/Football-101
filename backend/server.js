@@ -44,6 +44,27 @@ app.post("/signup", async (req, res) => {
   res.json({ message: "User registered successfully" });
 });
 
+// Login Route
+app.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+
+  // Check if user exists
+  const user = await User.findOne({ email });
+  if (!user) return res.status(400).json({ message: "User not found" });
+
+  // Verify password
+  const isMatch = await bcrypt.compare(password, user.password);
+  if (!isMatch) return res.status(400).json({ message: "Invalid credentials" });
+
+  // Generate JWT Token
+  const token = jwt.sign({ id: user._id }, "your_jwt_secret", {
+    expiresIn: "1h",
+  });
+
+  // Send token and user name to the frontend
+  res.json({ message: "Login successful", token, name: user.name });
+});
+
 // Start Server
 app.listen(5000, () => console.log("Server running on port 5000"));
 
