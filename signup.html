@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <link rel="stylesheet" href="/assets/css/signup.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <a href="index.html">
+        <h1 id="logo">Football 101</h1>
+      </a>
+      <!-- Checkbox for toggling menu -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <!-- Label for the checkbox, acting as the burger icon -->
+      <label for="nav-toggle" class="nav-toggle-label">
+        <i class="fa-solid fa-bars"></i>
+      </label>
+
+      <!-- Navigation Links -->
+      <nav>
+        <ul id="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="rules.html">Rules</a></li>
+          <li><a href="famous.html">Legends</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div id="signup-container">
+      <section id="signup-section">
+        <h2>Sign Up</h2>
+        <form id="signup-form">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input
+              type="text"
+              id="name"
+              placeholder="Enter your full name"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter your email address"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="Create a password"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="confirm-password">Confirm Password:</label>
+            <input
+              type="password"
+              id="confirm-password"
+              placeholder="Confirm your password"
+              required
+            />
+          </div>
+          <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="login.html">Login</a></p>
+      </section>
+    </div>
+    <!-- Footer -->
+    <footer>
+      <ul id="social-networks">
+        <li>
+          <a
+            href="https://www.facebook.com/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Visit our Facebook page"
+          >
+            <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.twitter.com/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Visit our Twitter page"
+          >
+            <i class="fa-brands fa-twitter" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.youtube.com/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Visit our YouTube channel"
+          >
+            <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Visit our Instagram page"
+          >
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
+        </li>
+      </ul>
+      <p>
+        &copy; 2024 Football 101. All rights reserved. Created by Craigan
+        Pinheiro.
+      </p>
+
+      <!-- Font Awesome Kit -->
+      <script
+        src="https://kit.fontawesome.com/e3a9c0b01e.js"
+        crossorigin="anonymous"
+      ></script>
+    </footer>
+  </body>
+</html>
