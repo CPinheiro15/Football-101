@@ -1,15 +1,16 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Football 101 - Game Rules</title>
-    <link rel="stylesheet" href="assets/css/rules.css" />
+    <link rel="stylesheet" href="{% static 'css/rules.css' %}" />
   </head>
   <body>
     <!-- Header -->
     <header>
-      <a href="index.html">
+      <a href="{% url 'home' %}">
         <h1 id="logo">Football 101</h1>
       </a>
       <!-- Checkbox for toggling menu -->
@@ -22,11 +23,16 @@
       <!-- Navigation Links -->
       <nav>
         <ul id="menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="rules.html">Rules</a></li>
-          <li><a href="famous.html">Legends</a></li>
-          <li><a href="quiz.html">Quiz</a></li>
-          <li><a href="login.html">Login</a></li>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'rules' %}">Rules</a></li>
+          <li><a href="{% url 'legends' %}">Legends</a></li>
+          <li><a href="{% url 'quiz' %}">Quiz</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'profile' %}">Profile</a></li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+          {% else %}
+          <li><a href="{% url 'login' %}">Login</a></li>
+          {% endif %}
         </ul>
       </nav>
     </header>
@@ -47,7 +53,7 @@
         <p>
           The main objective of football is to score more goals than the
           opposing team. Each team tries to send the ball into the opposing
-          team’s goal while preventing the opposing team from doing the same.
+          team's goal while preventing the opposing team from doing the same.
         </p>
       </section>
 

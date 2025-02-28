@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -14,12 +15,12 @@
     />
     <title>Football 101 - Famous Players & Teams</title>
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="assets/css/famous.css" />
+    <link rel="stylesheet" href="{% static 'css/famous.css' %}" />
   </head>
   <body>
     <!-- Header -->
     <header>
-      <a href="index.html">
+      <a href="{% url 'home' %}">
         <h1 id="logo">Football 101</h1>
       </a>
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
@@ -30,11 +31,16 @@
       <!-- Navigation Links -->
       <nav>
         <ul id="menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="rules.html">Rules</a></li>
-          <li><a href="famous.html">Legends</a></li>
-          <li><a href="quiz.html">Quiz</a></li>
-          <li><a href="login.html">Login</a></li>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'rules' %}">Rules</a></li>
+          <li><a href="{% url 'legends' %}">Legends</a></li>
+          <li><a href="{% url 'quiz' %}">Quiz</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'profile' %}">Profile</a></li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+          {% else %}
+          <li><a href="{% url 'login' %}">Login</a></li>
+          {% endif %}
         </ul>
       </nav>
     </header>
@@ -53,7 +59,7 @@
       <h2>Legendary Players</h2>
       <div class="players-grid">
         <div class="player">
-          <img src="assets/images/Pele.jpg" alt="Pele" />
+          <img src="{% static 'images/Pele.jpg' %}" alt="Pele" />
           <h3>Pele</h3>
           <p>
             Considered one of the greatest players of all time, Pele's influence
@@ -69,7 +75,7 @@
           </p>
         </div>
         <div class="player">
-          <img src="assets/images/Maradona.jpg" alt="Diego Maradona" />
+          <img src="{% static 'images/Maradona.jpg' %}" alt="Diego Maradona" />
           <h3>Diego Maradona</h3>
           <p>
             Known for his flair and creative genius, Diego Maradona was a
@@ -85,7 +91,7 @@
           </p>
         </div>
         <div class="player">
-          <img src="assets/images/Messi.jpg" alt="Lionel Messi" />
+          <img src="{% static 'images/Messi.jpg' %}" alt="Lionel Messi" />
           <h3>Lionel Messi</h3>
           <p>
             With numerous records and accolades to his name, Lionel Messi is
@@ -102,7 +108,10 @@
           </p>
         </div>
         <div class="player">
-          <img src="assets/images/Ronaldo.webp" alt="Cristiano Ronaldo" />
+          <img
+            src="{% static 'images/Ronaldo.webp' %}"
+            alt="Cristiano Ronaldo"
+          />
           <h3>Cristiano Ronaldo</h3>
           <p>
             Renowned for his physicality, work ethic, and goal-scoring ability,
@@ -119,7 +128,7 @@
           </p>
         </div>
         <div class="player">
-          <img src="assets/images/Zidane.webp" alt="Zinedine Zidane" />
+          <img src="{% static 'images/Zidane.webp' %}" alt="Zinedine Zidane" />
           <h3>Zinedine Zidane</h3>
           <p>
             One of the most elegant players in football history, Zidane's skill,
@@ -136,7 +145,7 @@
           </p>
         </div>
         <div class="player">
-          <img src="assets/images/Cruyff.jpg" alt="Johan Cruyff" />
+          <img src="{% static 'images/Cruyff.jpg' %}" alt="Johan Cruyff" />
           <h3>Johan Cruyff</h3>
           <p>
             Regarded as one of the greatest minds in football history, Johan
@@ -160,7 +169,10 @@
       <h2>Iconic Teams</h2>
       <div class="teams-grid">
         <div class="team">
-          <img src="assets/images/Brazil.jpg" alt="Brazil National Team" />
+          <img
+            src="{% static 'images/Brazil.jpg' %}"
+            alt="Brazil National Team"
+          />
           <h3>Brazil National Team</h3>
           <p>
             As the only team to have won five World Cups, Brazil is synonymous
@@ -173,7 +185,7 @@
           </p>
         </div>
         <div class="team">
-          <img src="assets/images/Barcelona.jpg" alt="FC Barcelona" />
+          <img src="{% static 'images/Barcelona.jpg' %}" alt="FC Barcelona" />
           <h3>FC Barcelona</h3>
           <p>
             With a celebrated youth academy (La Masia) and a tactical philosophy
@@ -187,13 +199,13 @@
           </p>
         </div>
         <div class="team">
-          <img src="assets/images/Real Madrid.jpg" alt="Real Madrid" />
+          <img src="{% static 'images/Real Madrid.jpg' %}" alt="Real Madrid" />
           <h3>Real Madrid</h3>
           <p>
             One of the most successful and influential clubs in football
             history, Real Madrid boasts a record number of UEFA Champions League
             titles. Known for their Galácticos era, which saw some of the
-            world’s best players like Zinedine Zidane, Ronaldo Nazário, and
+            world's best players like Zinedine Zidane, Ronaldo Nazário, and
             Cristiano Ronaldo come together, Real Madrid has built a legacy
             based on winning. Their success spans over several decades, with the
             club consistently producing high-level performances in both domestic
@@ -202,7 +214,10 @@
           </p>
         </div>
         <div class="team">
-          <img src="assets/images/Man Utd.jpg" alt="Manchester United" />
+          <img
+            src="{% static 'images/Man Utd.jpg' %}"
+            alt="Manchester United"
+          />
           <h3>Manchester United</h3>
           <p>
             As one of the most iconic clubs in English football, Manchester
@@ -217,7 +232,7 @@
           </p>
         </div>
         <div class="team">
-          <img src="assets/images/Juventus.webp" alt="Juventus" />
+          <img src="{% static 'images/Juventus.webp' %}" alt="Juventus" />
           <h3>Juventus</h3>
           <p>
             With a rich history of dominance in Italian football, Juventus has
@@ -231,7 +246,7 @@
           </p>
         </div>
         <div class="team">
-          <img src="assets/images/Bayern.jpg" alt="Bayern Munich" />
+          <img src="{% static 'images/Bayern.jpg' %}" alt="Bayern Munich" />
           <h3>Bayern Munich</h3>
           <p>
             As one of the most dominant clubs in German football, Bayern Munich
@@ -240,7 +255,7 @@
             foundation, Bayern has produced legendary players like Franz
             Beckenbauer, Gerd Muller, and Robert Lewandowski. The club has been
             a force in the Bundesliga and has won multiple UEFA Champions League
-            titles, securing its place as a global football powerhouse. Bayern’s
+            titles, securing its place as a global football powerhouse. Bayern's
             success has been built on both a deep talent pool and a winning
             mentality that runs through the club.
           </p>
@@ -296,12 +311,12 @@
         &copy; 2024 Football 101. All rights reserved. Created by Craigan
         Pinheiro.
       </p>
-    </footer>
 
-    <!-- Font Awesome Kit -->
-    <script
-      src="https://kit.fontawesome.com/e3a9c0b01e.js"
-      crossorigin="anonymous"
-    ></script>
+      <!-- Font Awesome Kit -->
+      <script
+        src="https://kit.fontawesome.com/e3a9c0b01e.js"
+        crossorigin="anonymous"
+      ></script>
+    </footer>
   </body>
 </html>

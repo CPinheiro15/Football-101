@@ -368,6 +368,8 @@ let score = 0;
 let timer;
 let timeLeft = 15;
 let attempts = 0;
+let categoryName = "";
+let currentQuestionAnswered = false;
 
 // DOM Elements
 const categoryButtons = document.querySelectorAll(".category-btn");
@@ -385,17 +387,189 @@ const pageTitleSection = document.getElementById("football-quiz");
 const feedbackMessage = document.getElementById("feedback-message");
 const gifContainer = document.getElementById("gif-container");
 
+// Check if the user is logged in
+const isLoggedIn = document.querySelector("[data-user-logged-in]") !== null;
+
 // Event Listener for Category Buttons
 categoryButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const category = button.getAttribute("data-category");
+    categoryName = category; // Store the category name
+
+    if (category === "random") {
+      checkProgress("random");
+    } else {
+      checkProgress(category);
+    }
+  });
+});
+
+// Check for existing progress
+function checkProgress(category) {
+  if (!isLoggedIn) {
+    // If not logged in, start quiz normally
     if (category === "random") {
       loadRandomCategoryQuestions();
     } else {
       startQuiz(category);
     }
-  });
-});
+    return;
+  }
+
+  // If logged in, check for saved progress
+  fetch(`/users/get-quiz-progress/?category=${category}`)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Saved Progress Data:", data); // Added logging
+
+      if (data.success && data.hasProgress) {
+        // Ask user if they want to continue
+        if (confirm("Would you like to continue your previous quiz?")) {
+          if (category === "random") {
+            // For random category, we need to use saved questions if available
+            if (data.randomQuestions) {
+              try {
+                // Parse the saved questions
+                currentCategory = JSON.parse(data.randomQuestions);
+                categoryName = category;
+                currentQuestionIndex = data.currentQuestionIndex;
+                score = data.score;
+                timeLeft = data.timeLeft;
+                attempts = data.attempts;
+
+                // Explicitly set the currentQuestionAnswered flag
+                currentQuestionAnswered = data.currentQuestionAnswered || false;
+                console.log(
+                  "Restored currentQuestionAnswered:",
+                  currentQuestionAnswered
+                ); // Added logging
+
+                initializeQuiz();
+              } catch (e) {
+                console.error("Error parsing saved random questions:", e);
+                loadRandomCategoryQuestions(); // Fallback
+              }
+            } else {
+              // If no saved questions (older sessions), just start new
+              loadRandomCategoryQuestions();
+            }
+          } else {
+            startQuiz(category);
+            // Restore progress
+            currentQuestionIndex = data.currentQuestionIndex;
+            score = data.score;
+            timeLeft = data.timeLeft;
+            attempts = data.attempts;
+
+            // Explicitly set the currentQuestionAnswered flag
+            currentQuestionAnswered = data.currentQuestionAnswered || false;
+            console.log(
+              "Restored currentQuestionAnswered:",
+              currentQuestionAnswered
+            ); // Added logging
+
+            loadQuestion();
+          }
+        } else {
+          // Start fresh
+          if (category === "random") {
+            loadRandomCategoryQuestions();
+          } else {
+            startQuiz(category);
+          }
+        }
+      } else {
+        // No progress or completed quiz, start fresh
+        if (category === "random") {
+          loadRandomCategoryQuestions();
+        } else {
+          startQuiz(category);
+        }
+      }
+    })
+    .catch((error) => {
+      console.error("Error checking progress:", error);
+      // Fall back to normal start
+      if (category === "random") {
+        loadRandomCategoryQuestions();
+      } else {
+        startQuiz(category);
+      }
+    });
+}
+
+// Also modify the loadRandomCategoryQuestions function to save the questions:
+function loadRandomCategoryQuestions() {
+  const allQuestions = Object.values(quizData).flat();
+  shuffleArray(allQuestions);
+  currentCategory = allQuestions.slice(0, 10);
+  categoryName = "random";
+
+  // Save these random questions when first created
+  if (isLoggedIn) {
+    const progressData = {
+      category: "random",
+      randomQuestions: JSON.stringify(currentCategory),
+      isInitialRandom: true,
+    };
+
+    fetch("/users/save-random-questions/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRFToken": getCookie("csrftoken"),
+      },
+      body: JSON.stringify(progressData),
+    }).catch((error) => console.error("Error saving random questions:", error));
+  }
+
+  initializeQuiz();
+}
+
+// And update the saveProgress function to include the questions for random category:
+function saveProgress(isCompleted = false) {
+  if (!isLoggedIn) return; // Don't save if not logged in
+
+  const progressData = {
+    category: categoryName,
+    currentQuestionIndex: currentQuestionIndex,
+    score: score,
+    timeLeft: timeLeft,
+    attempts: attempts,
+    currentQuestionAnswered: currentQuestionAnswered,
+    isCompleted: isCompleted,
+  };
+
+  // Include the questions if it's a random category
+  if (categoryName === "random") {
+    progressData.randomQuestions = JSON.stringify(currentCategory);
+  }
+
+  fetch("/users/save-quiz-progress/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-CSRFToken": getCookie("csrftoken"),
+    },
+    body: JSON.stringify(progressData),
+  }).catch((error) => console.error("Error saving progress:", error));
+}
+
+// Helper to get CSRF token
+function getCookie(name) {
+  let cookieValue = null;
+  if (document.cookie && document.cookie !== "") {
+    const cookies = document.cookie.split(";");
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      if (cookie.substring(0, name.length + 1) === name + "=") {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+      }
+    }
+  }
+  return cookieValue;
+}
 
 // Start Quiz
 function startQuiz(category) {
@@ -413,8 +587,9 @@ function loadRandomCategoryQuestions() {
 
 // Initialize Quiz
 function initializeQuiz() {
-  currentQuestionIndex = 0;
-  score = 0;
+  if (currentQuestionIndex === 0) {
+    score = 0;
+  }
   pageTitleSection.style.display = "none";
   document.getElementById("category-section").style.display = "none";
   quizSection.style.display = "block";
@@ -423,32 +598,77 @@ function initializeQuiz() {
 
 // Load Question
 function loadQuestion() {
+  console.log(
+    "Loading Question - Current Question Answered:",
+    currentQuestionAnswered
+  );
+  console.log("Current Attempts:", attempts);
+
   resetState();
   const currentQuestion = currentCategory[currentQuestionIndex];
   questionEl.textContent = currentQuestion.question;
 
-  currentQuestion.options.forEach((option) => {
-    const button = document.createElement("button");
-    button.textContent = option;
-    button.classList.add("option-btn");
-    button.addEventListener("click", () =>
-      selectAnswer(button, currentQuestion.answer)
-    );
-    optionsEl.appendChild(button);
-  });
+  // If attempts have reached 2, automatically show correct answer and prepare for next question
+  if (attempts >= 2) {
+    console.log("Attempts maxed out, showing correct answer");
+    currentQuestionAnswered = true;
+    nextBtn.style.display = "block";
+
+    currentQuestion.options.forEach((option) => {
+      const button = document.createElement("button");
+      button.textContent = option;
+      button.classList.add("option-btn");
+
+      if (option === currentQuestion.answer) {
+        button.classList.add("correct");
+      } else {
+        button.classList.add("disabled");
+      }
+      button.disabled = true;
+      optionsEl.appendChild(button);
+    });
+  } else {
+    // Normal question loading logic
+    currentQuestion.options.forEach((option) => {
+      const button = document.createElement("button");
+      button.textContent = option;
+      button.classList.add("option-btn");
+
+      if (currentQuestionAnswered && option === currentQuestion.answer) {
+        button.classList.add("correct");
+        button.disabled = true;
+        nextBtn.style.display = "block";
+      } else if (currentQuestionAnswered) {
+        button.disabled = true;
+      } else {
+        button.addEventListener("click", () =>
+          selectAnswer(button, currentQuestion.answer)
+        );
+      }
+
+      optionsEl.appendChild(button);
+    });
+  }
 
   updateQuestionCounter();
-  startTimer();
+
+  // Only start timer if question hasn't been answered and attempts are less than 2
+  if (!currentQuestionAnswered && attempts < 2) {
+    startTimer();
+  }
+
+  // Save progress when loading a new question
+  saveProgress();
 }
 
 // Reset State
 function resetState() {
   clearInterval(timer);
-  timeLeft = 15;
+  // Only update the display, don't reset the timeLeft variable here
   timerEl.textContent = timeLeft;
   optionsEl.innerHTML = "";
   nextBtn.style.display = "none";
-  attempts = 0;
+  // Don't reset attempts here, we want to keep track of them
 }
 
 // Timer Function
@@ -456,6 +676,10 @@ function startTimer() {
   timer = setInterval(() => {
     timeLeft--;
     timerEl.textContent = timeLeft;
+    // Save progress every 5 seconds
+    if (timeLeft % 5 === 0) {
+      saveProgress();
+    }
     if (timeLeft === 0) {
       clearInterval(timer);
       highlightCorrectAnswer();
@@ -473,6 +697,9 @@ function highlightCorrectAnswer() {
     }
   });
   nextBtn.style.display = "block";
+
+  // Save progress when answer is revealed
+  saveProgress();
 }
 
 // Select Answer
@@ -481,11 +708,16 @@ function selectAnswer(selectedBtn, correctAnswer) {
     clearInterval(timer);
     selectedBtn.classList.add("correct");
     score++;
+    currentQuestionAnswered = true; // Set the flag
+    saveProgress(); // Save on correct answer
     endAttempt();
   } else {
+    // Incorrect answer handling remains the same
     attempts++;
     selectedBtn.classList.add("incorrect");
     selectedBtn.disabled = true;
+
+    saveProgress(); // Save when an attempt is made
 
     if (attempts >= 2) {
       clearInterval(timer);
@@ -517,6 +749,10 @@ function updateQuestionCounter() {
 // Load Next Question
 nextBtn.addEventListener("click", () => {
   currentQuestionIndex++;
+  attempts = 0; // Reset attempts for next question
+  timeLeft = 15; // Reset the timer to the full amount for the next question
+  currentQuestionAnswered = false; // Reset the answered flag
+
   if (currentQuestionIndex < currentCategory.length) {
     loadQuestion();
   } else {
@@ -530,49 +766,66 @@ function endQuiz() {
   resultsSection.style.display = "block";
   scoreEl.textContent = score;
   displayFeedbackMessage();
+
+  // Mark quiz as completed
+  saveProgress(true);
 }
 
 // Restart Quiz (Redirect to Category Selection)
 restartBtn.addEventListener("click", () => {
-  resultsSection.style.display = "none"; 
-  pageTitleSection.style.display = "block"; 
-  document.getElementById("category-section").style.display = "block"; 
+  resultsSection.style.display = "none";
+  pageTitleSection.style.display = "block";
+  document.getElementById("category-section").style.display = "block";
+
+  // Reset quiz state
+  currentQuestionIndex = 0;
+  score = 0;
+  timeLeft = 15;
+  attempts = 0;
+});
+
+// Handle page unload (browser close, refresh, navigate away)
+window.addEventListener("beforeunload", function (e) {
+  // Save progress when leaving the page
+  if (quizSection.style.display === "block") {
+    saveProgress();
+  }
 });
 
 // Display Feedback Message
 function displayFeedbackMessage() {
   feedbackMessage.className = "feedback-message";
-  gifContainer.innerHTML = ""; 
+  gifContainer.innerHTML = "";
 
   // Decide feedback and GIF based on score
   if (score === currentCategory.length) {
     feedbackMessage.textContent = "🏆 You won the league!";
     feedbackMessage.classList.add("perfect-score");
     gifContainer.innerHTML = `
-      <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXg4MWVoZ2Y1b2h2dThrdzRtYWhic3lldWRndWk4MTNwZHlpMXpmZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XZLerQ7h0qiu5V8bN1/giphy.gif" 
-           alt="Perfect Score GIF" class="responsive-gif">
-    `;
+        <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXg4MWVoZ2Y1b2h2dThrdzRtYWhic3lldWRndWk4MTNwZHlpMXpmZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XZLerQ7h0qiu5V8bN1/giphy.gif" 
+            alt="Perfect Score GIF" class="responsive-gif">
+      `;
   } else if (score >= currentCategory.length * 0.8) {
     feedbackMessage.textContent = "🎉 You finished in the top 4!";
     feedbackMessage.classList.add("great-job");
     gifContainer.innerHTML = `
-      <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDZmY29mNWF6OHZrNDVoaWRycTFsZTdwbzV2anN3NTFwenNkZTR3byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7bu2D938PkrKrcYw/giphy.gif" 
-           alt="Great Job GIF" class="responsive-gif">
-    `;
+        <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDZmY29mNWF6OHZrNDVoaWRycTFsZTdwbzV2anN3NTFwenNkZTR3byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7bu2D938PkrKrcYw/giphy.gif" 
+            alt="Great Job GIF" class="responsive-gif">
+      `;
   } else if (score >= currentCategory.length * 0.5) {
     feedbackMessage.textContent = "🙂 You finished mid-table!";
     feedbackMessage.classList.add("moderate-score");
     gifContainer.innerHTML = `
-      <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTh0eXR0aWFzdWR5ZjFieWpveDE3M21mcnBqczdyMDdrczA2MWltYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/t3qmY19KZtYM8SOBed/giphy.gif" 
-           alt="Moderate Score GIF" class="responsive-gif">
-    `;
+        <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTh0eXR0aWFzdWR5ZjFieWpveDE3M21mcnBqczdyMDdrczA2MWltYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/t3qmY19KZtYM8SOBed/giphy.gif" 
+            alt="Moderate Score GIF" class="responsive-gif">
+      `;
   } else {
     feedbackMessage.textContent = "😔 You got relegated!";
     feedbackMessage.classList.add("low-score");
     gifContainer.innerHTML = `
-      <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHh3cTdoNHFuaWVsNGVoOXdjOWxmMmlzanQzNzJ5bmJyYWxydjZ6NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/oXn4ii5U4FuC50LEil/giphy.gif" 
-           alt="Low Score GIF" class="responsive-gif">
-    `;
+        <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHh3cTdoNHFuaWVsNGVoOXdjOWxmMmlzanQzNzJ5bmJyYWxydjZ6NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/oXn4ii5U4FuC50LEil/giphy.gif" 
+            alt="Low Score GIF" class="responsive-gif">
+      `;
   }
 }
 

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -17,27 +18,27 @@
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="assets/favicon/apple-touch-icon.png"
+      href="{% static 'favicon/apple-touch-icon.png' %}"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="assets/favicon/favicon-32x32.png"
+      href="{% static 'favicon/favicon-32x32.png' %}"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="assets/favicon/favicon-16x16.png"
+      href="{% static 'favicon/favicon-16x16.png' %}"
     />
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="assets/css/login.css" />
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
   </head>
   <body>
     <!-- Header -->
     <header>
-      <a href="index.html">
+      <a href="{% url 'home' %}">
         <h1 id="logo">Football 101</h1>
       </a>
       <!-- Checkbox for toggling menu -->
@@ -50,11 +51,16 @@
       <!-- Navigation Links -->
       <nav>
         <ul id="menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="rules.html">Rules</a></li>
-          <li><a href="famous.html">Legends</a></li>
-          <li><a href="quiz.html">Quiz</a></li>
-          <li><a href="login.html">Login</a></li>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'rules' %}">Rules</a></li>
+          <li><a href="{% url 'legends' %}">Legends</a></li>
+          <li><a href="{% url 'quiz' %}">Quiz</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'profile' %}">Profile</a></li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+          {% else %}
+          <li><a href="{% url 'login' %}">Login</a></li>
+          {% endif %}
         </ul>
       </nav>
     </header>
@@ -64,12 +70,27 @@
       <section id="login-section">
         <h2>Login</h2>
         <p>Access your account and explore the world of football.</p>
-        <form id="login-form">
+
+        {% if messages %}
+        <div class="messages">
+          {% for message in messages %}
+          <div
+            class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}"
+          >
+            {{ message }}
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        <form id="login-form" method="POST" action="{% url 'login' %}">
+          {% csrf_token %}
           <div class="form-group">
             <label for="email">Email</label>
             <input
               type="email"
               id="email"
+              name="email"
               placeholder="Enter your email"
               required
             />
@@ -79,12 +100,15 @@
             <input
               type="password"
               id="password"
+              name="password"
               placeholder="Enter your password"
               required
             />
           </div>
           <button type="submit">Login</button>
-          <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+          <p>
+            Don't have an account? <a href="{% url 'register' %}">Sign up</a>
+          </p>
         </form>
       </section>
     </div>

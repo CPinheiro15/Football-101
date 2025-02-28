@@ -1,15 +1,16 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Football 101 - Quiz</title>
-    <link rel="stylesheet" href="assets/css/quiz.css" />
+    <link rel="stylesheet" href="{% static 'css/quiz.css' %}" />
   </head>
   <body>
     <!--Header-->
     <header>
-      <a href="index.html" aria-label="Go to homepage">
+      <a href="{% url 'home' %}" aria-label="Go to homepage">
         <h1 id="logo">Football 101</h1>
       </a>
       <!-- Checkbox for toggling menu -->
@@ -31,11 +32,16 @@
       <!-- Navigation Links -->
       <nav>
         <ul id="menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="rules.html">Rules</a></li>
-          <li><a href="famous.html">Legends</a></li>
-          <li><a href="quiz.html">Quiz</a></li>
-          <li><a href="login.html">Login</a></li>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'rules' %}">Rules</a></li>
+          <li><a href="{% url 'legends' %}">Legends</a></li>
+          <li><a href="{% url 'quiz' %}">Quiz</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'profile' %}">Profile</a></li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+          {% else %}
+          <li><a href="{% url 'login' %}">Login</a></li>
+          {% endif %}
         </ul>
       </nav>
     </header>
@@ -69,6 +75,11 @@
         </button>
       </div>
     </section>
+
+    <!-- User Logged In -->
+    {% if user.is_authenticated %}
+    <div data-user-logged-in style="display: none"></div>
+    {% endif %}
 
     <!-- Quiz Display Section -->
     <section id="quiz-section" class="hidden">
@@ -144,6 +155,7 @@
         crossorigin="anonymous"
       ></script>
     </footer>
-    <script src="quiz.js"></script>
+
+    <script src="{% static 'js/quiz.js' %}"></script>
   </body>
 </html>

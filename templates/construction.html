@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page Under Construction</title>
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="assets/css/construction.css" />
+    <link rel="stylesheet" href="{% static 'css/construction.css' %}" />
   </head>
   <body>
     <div class="construction-container">
@@ -13,7 +14,7 @@
         <i class="fas fa-hard-hat"></i>
         <h1>Page Under Construction</h1>
         <p>We're working hard to bring you something amazing! Stay tuned.</p>
-        <button onclick="location.href='index.html'">Go Back to Home</button>
+        <a href="{% url 'home' %}" class="button">Go Back to Home</a>
       </div>
     </div>
     <footer>
