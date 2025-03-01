@@ -30,7 +30,7 @@
 - **Secure User Authentication**
   - Registration & login system
   - Profile management
-  - 
+
 ### 📱 Responsive Design
 
 Football 101 offers a seamless experience across desktops, tablets, and mobile devices, making learning accessible anywhere.
